@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #00ffff, #00ff80);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-top: 10px;
+  }
+  .submit-btn:hover {
+  background: linear-gradient(90deg, #00ff80, #00ffff);
+  box-shadow: 0 5px 15px #00ffff80;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section {
+    padding: 80px 20px;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+  }
+  
+  .section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .product-table th,
+  .product-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  
