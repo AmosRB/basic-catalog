@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function UserManager({ onClose }) {
   const [users, setUsers] = useState([]);
@@ -7,7 +9,7 @@ export default function UserManager({ onClose }) {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/users', {
+      const res = await axios.get(`${BASE_URL}/users`, { //שינוי
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -20,7 +22,7 @@ export default function UserManager({ onClose }) {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`, {
+      await axios.delete(`${BASE_URL}/users/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

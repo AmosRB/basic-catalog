@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
+
 
 export default function AddProduct({ onClose, onAdded }) {
   const [formData, setFormData] = useState({
@@ -20,7 +23,7 @@ export default function AddProduct({ onClose, onAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/products', formData);
+      await axios.post(`${BASE_URL}/products`, formData); // שינוי להתחברות מרחוק
       setMessage('Product added!');
       onAdded(); // 👈 trigger refresh
       setTimeout(onClose, 1000);      

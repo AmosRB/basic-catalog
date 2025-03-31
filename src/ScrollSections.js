@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from './config';
+
 
 function ScrollSections({ refresh, username, onNavigate }) {
   const [products, setProducts] = useState([]);
@@ -12,7 +14,7 @@ function ScrollSections({ refresh, username, onNavigate }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products');
+        const res = await axios.get(`${BASE_URL}/products`); // שינוי להתחברות מרחוק
         setProducts(res.data);
         setLastUpdate(new Date());
       } catch (err) {

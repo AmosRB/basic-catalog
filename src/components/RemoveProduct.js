@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function RemoveProduct({ onClose, onRemoved }) {
   const [products, setProducts] = useState([]);
@@ -7,7 +9,7 @@ export default function RemoveProduct({ onClose, onRemoved }) {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/products');
+      const res = await axios.get(`${BASE_URL}/products`); // שינוי
       setProducts(res.data);
     } catch (err) {
       setMessage('Failed to load products');
@@ -16,7 +18,7 @@ export default function RemoveProduct({ onClose, onRemoved }) {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`, {
+      await axios.delete(`${BASE_URL}/products/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function Login({ onLogin, onClose }) {
   const [username, setUsername] = useState('');
@@ -9,7 +11,8 @@ export default function Login({ onLogin, onClose }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { username, password });
+      const res = await axios.post(`${BASE_URL}/login`, { username, password });//שינוי 
+
       localStorage.setItem('token', res.data.token);
       onLogin(res.data.role, res.data.username);
       setMessage('Login successful!');

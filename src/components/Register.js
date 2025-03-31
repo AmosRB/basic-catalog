@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function Register({ onClose }) {
   const [username, setUsername] = useState('');
@@ -10,7 +12,7 @@ export default function Register({ onClose }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/register', { username, password, role });
+      const res = await axios.post(`${BASE_URL}/register`, { username, password, role });//שינוי
       setMessage('Registered!');
       setTimeout(() => onClose(), 1000);
     } catch (err) {

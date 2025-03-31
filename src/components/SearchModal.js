@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function SearchModal({ query, onClose, userRole, onEdit }) {
   const [results, setResults] = useState([]);
@@ -8,7 +10,7 @@ export default function SearchModal({ query, onClose, userRole, onEdit }) {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/products/search?query=${encodeURIComponent(query)}`)
+        const res = await axios.get(`${BASE_URL}/products/search?query=${encodeURIComponent(query)}`); //שינוי
 ;
         setResults(res.data);
         if (res.data.length === 0) setMessage('No results found.');

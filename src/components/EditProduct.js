@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BASE_URL from '../config';
+
 
 export default function EditProduct({ product, onClose, onSaved }) {
   const [formData, setFormData] = useState({
@@ -18,7 +20,8 @@ export default function EditProduct({ product, onClose, onSaved }) {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/products/${product._id}`, formData, {
+      await axios.put(`${BASE_URL}/products/${product._id}`, formData, // שינוי להתחברות מרחוק
+        {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
