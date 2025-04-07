@@ -1,1 +1,29 @@
 
+# Node modules
+node_modules/
+
+# לוגים
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+dist/
+build/
+
+# מערכת הפעלה
+.DS_Store
+Thumbs.db
+
+# סביבות עבודה
+.env
+.vscode/
+.idea/
+
+# Electron
+out/
+*.exe
+*.app
+
+# npm
+package-lock.json
