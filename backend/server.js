@@ -14,9 +14,10 @@ const PORT = process.env.PORT || 5000;
 const SECRET = 'your_jwt_secret';
 
 // ✅ חיבור ל־MongoDB עם dbName
-mongoose.connect(
-  'mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/?retryWrites=true&w=majority&dbName=basic-catalog',
-  { useNewUrlParser: true, useUnifiedTopology: true }
+mongoose.connect('mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/?retryWrites=true&w=majority&dbName=basic-catalog', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 )
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => {
