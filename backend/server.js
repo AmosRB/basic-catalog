@@ -18,12 +18,12 @@ mongoose.connect('mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/?retryW
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-)
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => {
   console.error('❌ MongoDB error:', err.message);
   process.exit(1);
 });
+
 
 // 🔐 Register
 app.post('/register', async (req, res) => {
