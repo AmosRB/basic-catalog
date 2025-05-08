@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 5000;
 const SECRET = 'your_jwt_secret';
 
 // Connect to MongoDB (replace <username>:<password> with real values)
-mongoose.connect('mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/basic-catalog')
+mongoose.connect('mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/?retryWrites=true&w=majority&dbName=basic-catalog
+')
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
@@ -162,6 +163,17 @@ app.put('/products/:id', verifyAdmin, async (req, res) => {
     res.status(500).send({ error: 'Update failed' });
   }
 });
+
+app.get('/products', async (req, res) => {
+  try {
+    const products = await Product.find().sort({ createdAt: -1 });
+    res.send(products);
+  } catch (err) {
+    console.error('❌ Product fetch error:', err.message);
+    res.status(500).send({ error: 'Server error', details: err.message });
+  }
+});
+
 
 app.get('/products/search', async (req, res) => {
   const { query } = req.query;
