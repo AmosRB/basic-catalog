@@ -25,6 +25,7 @@ mongoose.connect('mongodb+srv://amos:test1234@cluster0.b5jc2.mongodb.net/?retryW
 });
 
 
+
 // 🔐 Register
 app.post('/register', async (req, res) => {
   const { username, password, role } = req.body;
