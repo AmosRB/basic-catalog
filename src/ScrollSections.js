@@ -84,17 +84,16 @@ function ScrollSections({ refresh, username, onNavigate }) {
         }}
       >
         <img
-          src="/high-strage.jpg"
-          alt="high-strage"
-          style={{
-            width: '100%',
-            height: 'auto',
-            display: 'block',
-            objectFit: 'cover',
-            filter: username ? 'none' : 'blur(8px)',
-            transition: 'filter 0.5s ease'
-          }}
-        />
+  src="/high-strage.jpg"
+  alt="high-strage"
+  style={{
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    display: 'block'
+  }}
+/>
+
 
         <div
           className="text-white d-flex justify-content-center align-items-center"
